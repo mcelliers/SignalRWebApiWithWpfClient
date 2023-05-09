@@ -1,7 +1,9 @@
 /***********************************************************************************************************\
+ *  Demo Application : SignalRWebApi   
+ *  Description:     : DotNet Core 6 WebApi with Included SignalR
  * 
- * 
- * 
+ * Created by   Marius Celliers
+ * Date         2023-05-09
  * 
  * Nuget Package Add : Microsoft.AspNet.SignalR (ver2.4.3)
  * 

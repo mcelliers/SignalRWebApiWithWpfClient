@@ -10,5 +10,10 @@ On the WPF application (If Connected) the message will be displayed.
 you can also send a message from the wpf application using the SendMessage Button
 
 
-THis demo currently only sends string messages.
+This demo currently only sends string messages.
 The next changes will be to send more complex/custom dataTypes
+ToDo: Create an Exaple of Task on The WebApi that Triggers every Second and then sends data to all clients (Message: ServerTime)
+ToDo: Create an Example where Messages can be sent to individual client.
+
+This project was designed in Visual Studio 2022
+

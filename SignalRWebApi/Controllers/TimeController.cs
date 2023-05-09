@@ -25,4 +25,4 @@ public class TimeController : ControllerBase
         return Results.Ok(message);
     }
 
-}
+} //class End

@@ -1,4 +1,14 @@
-﻿using System;
+﻿/***********************************************************************************************************\
+ *  Demo Application : WpfSignalRClientApp   
+ *  Description:     : DotNet Core 6 WPF Application with Included SignalR-client
+ * 
+ * Created by   Marius Celliers
+ * Date         2023-05-09
+ * 
+ * Nuget Package Add : Microsoft.AspNet.SignalR.Client (Ver 7.0.5)
+ * 
+ \***********************************************************************************************************/
+using System;
 using System.Threading.Tasks;
 using System.Windows;
 

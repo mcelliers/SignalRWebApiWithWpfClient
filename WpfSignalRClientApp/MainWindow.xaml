@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfSignalRClientApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Demo Application For testing SignalR" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="161*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >
             <RowDefinition Height="Auto" />
@@ -19,23 +20,23 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,32" Grid.RowSpan="2">
             <TextBlock>DEmo Application for SignalR</TextBlock>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,58" Grid.RowSpan="2">
             <Button x:Name="ButtonConnect" Width="200" Padding="5" Margin="2" HorizontalAlignment="Center" Click="ButtonConnect_Click">Connect</Button>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
-            <TextBox x:Name="MessageInput" MinWidth="300" Margin="20"/>
-            <Button x:Name="ButtonSendMessage"  Padding="20 10" Click="ButtonSendMessage_Click" >Send Message</Button>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="61,0,0,24" Grid.RowSpan="2">
+            <TextBox x:Name="MessageInput" MinWidth="500" Margin="20"/>
+            <Button x:Name="ButtonSendMessage"  Padding="20 5" Click="ButtonSendMessage_Click" >Send Message</Button>
 
         </StackPanel>
-        <ScrollViewer Grid.Row="3" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Row="3" Grid.Column="1" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2" Margin="0,0,0,304" Grid.RowSpan="2">
             <ListBox x:Name="messages" HorizontalAlignment="Stretch"
                      Padding="20 10" BorderThickness="1" />
         </ScrollViewer>
-        
+
     </Grid>
 </Window>
