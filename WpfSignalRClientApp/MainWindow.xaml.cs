@@ -25,9 +25,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Microsoft.AspNetCore.SignalR.Client;
+using SignalRWebApi.Models;
+using System.IO;
 
-namespace WpfSignalRClientApp;
-
+namespace WpfSignalRClientApp
+{ 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
@@ -38,8 +40,12 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        //connection = new HubConnectionBuilder()
+        //    .WithUrl(@"https://localhost:7115/Notifications")
+        //    .WithAutomaticReconnect().Build();
+
         connection = new HubConnectionBuilder()
-            .WithUrl(@"https://localhost:7115/Notifications")
+            .WithUrl(@"http://192.168.200.8/Notifications")
             .WithAutomaticReconnect().Build();
         //https://localhost:7115/Notifications
 
@@ -75,14 +81,30 @@ public partial class MainWindow : Window
 
     private async void ButtonConnect_Click(object sender, RoutedEventArgs e)
     {
-        connection.On<string, string>("ReceiveMessage", (user, message) => 
-        {
-            this.Dispatcher.Invoke(() => 
+            connection.On<string, string>("ReceiveMessage", (user, message) =>
             {
-                var newMessage = $"{user} :{message}";
+                this.Dispatcher.Invoke(() =>
+                {
+                    var newMessage = $"{user} :{message}";
+                    messages.Items.Add(newMessage);
+                });
+            });
+
+            connection.On<string, NotificationsModel>("ReceiveNotification",(user,message) =>
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                var newMessage = $"{user} :{message.Messsage}";
+                var imageBytes = Convert.FromBase64String(message.ImageStream);
+                BitmapImage bi = new BitmapImage();
+                bi.BeginInit();
+                bi.StreamSource = new MemoryStream(imageBytes);
+                bi.EndInit();
+                MainImage.Source = bi;
                 messages.Items.Add(newMessage);
             });
         }  );
+
 
         try
         {
@@ -114,3 +136,4 @@ public partial class MainWindow : Window
         }
     }
 } //Class End
+}
