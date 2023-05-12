@@ -118,8 +118,6 @@ public partial class MainWindow : Window
 
             messages.Items.Add(ex.Message);
         }
-
-
     }
 
     private async void ButtonSendMessage_Click(object sender, RoutedEventArgs e)
